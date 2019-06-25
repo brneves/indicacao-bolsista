@@ -1,0 +1,17 @@
+{
+  "name": "Inscrições Uema",
+  "description": "Um plugin wordpress para as Inscrições da Uema",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "DPD Uema",
+      "email": "ronaldoneves.uema.dpd@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MocaBonita\\" : "moca_bonita",
+      "Evento\\" : "./"
+    }
+  }
+}
