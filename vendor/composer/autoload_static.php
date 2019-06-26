@@ -11,9 +11,9 @@ class ComposerStaticInit3f68812adad4170ff1e2dac51b721d0e
         array (
             'MocaBonita\\' => 11,
         ),
-        'E' => 
+        'I' => 
         array (
-            'Evento\\' => 7,
+            'Indicacao\\' => 10,
         ),
     );
 
@@ -22,7 +22,7 @@ class ComposerStaticInit3f68812adad4170ff1e2dac51b721d0e
         array (
             0 => __DIR__ . '/../..' . '/moca_bonita',
         ),
-        'Evento\\' => 
+        'Indicacao\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',
         ),

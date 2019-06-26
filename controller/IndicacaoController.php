@@ -2,7 +2,6 @@
 
 namespace Indicacao\controller;
 
-
 use Indicacao\model\Indicacao;
 use Indicacao\view\IndicacaoView;
 use MocaBonita\controller\Controller;
@@ -31,7 +30,6 @@ class IndicacaoController implements Controller
      */
     public function getRequest(array $get)
     {
-        // TODO: Implement getRequest() method.
     }
 
     /**
@@ -41,7 +39,6 @@ class IndicacaoController implements Controller
      */
     public function postRequest(array $post)
     {
-        // TODO: Implement postRequest() method.
     }
 
     /**
@@ -49,18 +46,44 @@ class IndicacaoController implements Controller
      *
      * @param array $put The PUT array
      */
-    public function putRequest(array $put)
-    {
-        // TODO: Implement putRequest() method.
-    }
+    public function putRequest(array $put){}
 
     /**
      * Treats the DELETE request
      *
      * @param array $delete The DELETE array
      */
-    public function deleteRequest(array $delete)
+    public function deleteRequest(array $delete){}
+
+    public function cnpqShortcode()
     {
-        // TODO: Implement deleteRequest() method.
+        return $this->view->cnpqShortcode();
     }
+
+    public function fapemaShortcod()
+    {
+        return $this->view->fapemaShortcod();
+    }
+
+    public function uemaShortcode()
+    {
+        return $this->view->uemaShortcode();
+    }
+
+    public function pivicShortcode()
+    {
+        return $this->view->pivicShortcode();
+    }
+
+    public function acoesShortcode()
+    {
+        return $this->view->acoesShortcode();
+    }
+
+    public function create($data)
+    {
+        $this->model->create($data);
+        return $this->model->getResult();
+    }
+
 }

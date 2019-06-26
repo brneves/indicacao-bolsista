@@ -83,11 +83,11 @@ class Indicacao extends MocaBonita\MocaBonita
      */
     public function addShortcode()
     {
-        WPShortcode::addShortCode('insc-cnpq', $this->todo->getController('indicacao'), 'indicacaoShortcode');
-        WPShortcode::addShortCode('insc-fapema', $this->todo->getController('indicacao'), 'indicacaoShortcode');
-        WPShortcode::addShortCode('insc-uema', $this->todo->getController('indicacao'), 'indicacaoShortcode');
-        WPShortcode::addShortCode('insc-pivic', $this->todo->getController('indicacao'), 'indicacaoShortcode');
-        WPShortcode::addShortCode('insc-acoes', $this->todo->getController('indicacao'), 'indicacaoShortcode');
+        WPShortcode::addShortCode('insc-cnpq', $this->todo->getController('indicacao'), 'cnpqShortcode');
+        WPShortcode::addShortCode('insc-fapema', $this->todo->getController('indicacao'), 'fapemaShortcode');
+        WPShortcode::addShortCode('insc-uema', $this->todo->getController('indicacao'), 'uemaShortcode');
+        WPShortcode::addShortCode('insc-pivic', $this->todo->getController('indicacao'), 'pivicShortcode');
+        WPShortcode::addShortCode('insc-acoes', $this->todo->getController('indicacao'), 'acoesShortcode');
     }
 
     /**

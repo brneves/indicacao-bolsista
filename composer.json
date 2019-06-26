@@ -1,6 +1,6 @@
 {
-  "name": "Inscrições Uema",
-  "description": "Um plugin wordpress para as Inscrições da Uema",
+  "name": "Indicação de Bolsistas",
+  "description": "Um plugin wordpress para as Gerenciar a Indicação de Bolsistas PPG",
   "license": "GPLv2",
   "authors": [
     {
@@ -11,7 +11,7 @@
   "autoload": {
     "psr-4": {
       "MocaBonita\\" : "moca_bonita",
-      "Evento\\" : "./"
+      "Indicacao\\" : "./"
     }
   }
 }
