@@ -17,9 +17,14 @@ class Indicacao extends ModelWPDB
         return $this->result;
     }
 
-    public function getAll($id)
+    public function getAll($id = null)
     {
-        $sql = "";
+        if ($id)
+            $where = "WHERE id = {$id}";
+        else
+            $where = null;
+
+        $sql = "SELECT * FROM {$this->table} {$where} ORDER BY nome ASC";
 
         try {
             return $this->getResultsT(parent::prepare($sql, []), ARRAY_A);
@@ -54,7 +59,7 @@ class Indicacao extends ModelWPDB
             'fone_celular'               => $this->data['fone_celular'],
             'email'                      => $this->data['email'],
             'agencia'                    => $this->data['agencia'],
-            'conta_conrrente'            => $this->data['conta_conrrente'],
+            'conta_corrente'            => $this->data['conta_corrente'],
             'orientador'                 => $this->data['orientador'],
             'data_nascimento_orientador' => $this->data['data_nascimento_orientador'],
             'titulacao'                  => $this->data['titulacao'],
@@ -109,7 +114,7 @@ class Indicacao extends ModelWPDB
             ]);
 
         if ($idIndicacao):
-            $this->result = ["Indicação realizada com sucesso!", "alert-success"];
+            $this->result = ["Indicação realizada com sucesso!", "alert-success", $idIndicacao];
         else:
             $this->result = ["Não foi possível realizar a indicação!", "alert-warning"];
         endif;

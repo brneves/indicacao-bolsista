@@ -2,7 +2,6 @@
 
 namespace Indicacao\view;
 
-
 use Indicacao\controller\IndicacaoController;
 
 class IndicacaoView
@@ -16,6 +15,8 @@ class IndicacaoView
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
+
+            echo "<a href='". plugin_dir_url(__FILE__) ."comprovante.php?id=".$result[2]."' target='_blank' title='Emitir ficha para impressão' class='btn btn-primary fontWhite'>Emitir ficha para impressão</a><br><br>";
         endif;
 
         ?>
@@ -183,7 +184,7 @@ class IndicacaoView
 
                     <input type="hidden" name="tipo" value="Bolsista PIBIC/FAPEMA/2019">
 
-                    <input type="button" name="enviar" value="Enviar" class="btn btn-primary">
+                    <input type="submit" name="enviar" value="Enviar" class="btn btn-primary">
 
                 </div>
             </div>
