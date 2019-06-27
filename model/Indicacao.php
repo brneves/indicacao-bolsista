@@ -17,12 +17,21 @@ class Indicacao extends ModelWPDB
         return $this->result;
     }
 
-    public function getAll($id = null)
+    public function getAll($id = null, $tipo = null)
     {
-        if ($id)
-            $where = "WHERE id = {$id}";
-        else
-            $where = null;
+        if ($id):
+            if ($tipo):
+                $where = "WHERE id = {$id} AND tipo = '{$tipo}'";
+            else:
+                $where = "WHERE id = {$id}";
+            endif;
+        else:
+            if ($tipo):
+                $where = "WHERE tipo = '{$tipo}'";
+            else:
+                $where = null;
+            endif;
+        endif;
 
         $sql = "SELECT * FROM {$this->table} {$where} ORDER BY nome ASC";
 
@@ -59,7 +68,7 @@ class Indicacao extends ModelWPDB
             'fone_celular'               => $this->data['fone_celular'],
             'email'                      => $this->data['email'],
             'agencia'                    => $this->data['agencia'],
-            'conta_corrente'            => $this->data['conta_corrente'],
+            'conta_corrente'             => $this->data['conta_corrente'],
             'orientador'                 => $this->data['orientador'],
             'data_nascimento_orientador' => $this->data['data_nascimento_orientador'],
             'titulacao'                  => $this->data['titulacao'],

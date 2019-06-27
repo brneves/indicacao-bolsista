@@ -34,6 +34,7 @@ class Comprovante
     {
 
 //        var_dump($this->data);
+        $this->data['sexo'] = $this->data['sexo'] == "F" ? "Feminino" : "Masculino";
 
         header('Content-Type: text/html; charset=utf-8');
         $dompdf = new DOMPDF();
@@ -45,17 +46,17 @@ class Comprovante
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
                 table {
-  width: 100%;
-}
-table {
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-tr:nth-child(even) {background-color: #f2f2f2;}
-</style>
+                      width: 100%;
+                    }
+                    table {
+                      border-collapse: collapse;
+                    }
+                    
+                    table, th, td {
+                      border: 1px solid black;
+                    }
+                    tr:nth-child(even) {background-color: #f2f2f2;}
+                </style>
                 <title>Indicação ' . $this->data['tipo'] . '</title>
             </head>
             <body>
@@ -84,7 +85,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                     </tr>
                     <tr>
                         <td><strong>Data de nascimento: </strong></td>
-                        <td>' . $this->data['data_nascimento'] . '</td>
+                        <td>' . date("d/m/Y", strtotime($this->data['data_nascimento'])) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Sexo: </strong></td>
@@ -112,7 +113,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                     </tr>
                     <tr>
                         <td><strong>Data de emissão do RG:</strong></td>
-                        <td>' . $this->data['data_emissao'] . '</td>
+                        <td>' . date("d/m/Y", strtotime($this->data['data_emissao'])) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Número de telefone residencial: </strong></td>
@@ -140,7 +141,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                     </tr>
                     <tr>
                         <td><strong>Data de nascimento: </strong></td>
-                        <td>' . $this->data['data_nascimento_orientador'] . '</td>
+                        <td>' . date("d/m/Y", strtotime($this->data['data_nascimento_orientador'])) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Titulação: </strong></td>
@@ -186,9 +187,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                         <td><strong>Palavras-chave (no máximo três): </strong></td>
                         <td>' . $this->data['palavra_chave'] . '</td>
                     </tr>
-                    
-                
             </table>
+            <br>
+            <p style="text-align: center">________________________________________________ <br>Assinatura do(a) Bolsista</p>
+            <p style="text-align: center">________________________________________________ <br>Assinatura do(a) Orientador(a)</p>
+            <p style="text-align: center"><strong>CP/PPG/UEMA</strong></p>
             </div>
             </body>
         </html>

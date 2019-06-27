@@ -30,6 +30,11 @@ class IndicacaoController implements Controller
      */
     public function getRequest(array $get)
     {
+        switch ($get['page']):
+            case 'indicacao':
+                return $this->view->indexView();
+                break;
+        endswitch;
     }
 
     /**
@@ -46,23 +51,27 @@ class IndicacaoController implements Controller
      *
      * @param array $put The PUT array
      */
-    public function putRequest(array $put){}
+    public function putRequest(array $put)
+    {
+    }
 
     /**
      * Treats the DELETE request
      *
      * @param array $delete The DELETE array
      */
-    public function deleteRequest(array $delete){}
+    public function deleteRequest(array $delete)
+    {
+    }
 
     public function cnpqShortcode()
     {
         return $this->view->cnpqShortcode();
     }
 
-    public function fapemaShortcod()
+    public function fapemaShortcode()
     {
-        return $this->view->fapemaShortcod();
+        return $this->view->fapemaShortcode();
     }
 
     public function uemaShortcode()
