@@ -59,6 +59,7 @@ class Indicacao extends MocaBonita\MocaBonita
             ];
 
             $js = [
+                plugins_url(Path::PLGJS . 'bootstrap.min.js'),
                 plugins_url(Path::PLGJS . 'js-view.js')
             ];
             $this->insertCSS($css);

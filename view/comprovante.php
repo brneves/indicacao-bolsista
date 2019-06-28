@@ -36,6 +36,28 @@ class Comprovante
 //        var_dump($this->data);
         $this->data['sexo'] = $this->data['sexo'] == "F" ? "Feminino" : "Masculino";
 
+        $agencia = '<tr>
+                        <td><strong>Agência do Banco do Brasil nº: </strong></td>
+                        <td>' . $this->data['agencia'] . '</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conta corrente nº: </strong></td>
+                        <td>' . $this->data['conta_corrente'] . '</td>
+                    </tr>';
+
+        if($this->data['tipo'] == "Bolsista PIBIC/FAPEMA/2019")
+            $img = "fapema.jpg";
+        if($this->data['tipo'] == "Bolsista PIBIC/UEMA")
+            $img = "uema.jpg";
+        if($this->data['tipo'] == "Bolsista PIBIC/Ações Afirmativas")
+            $img = "acoes.jpg";
+        if($this->data['tipo'] == "Bolsista PIBIC/CPNq")
+            $img = "cnpq.jpg";
+        if($this->data['tipo'] == "Bolsista PIVIC"):
+            $img = "pivic.jpg";
+            $agencia = null;
+        endif;
+
         header('Content-Type: text/html; charset=utf-8');
         $dompdf = new DOMPDF();
         $dompdf->load_html('
@@ -61,6 +83,7 @@ class Comprovante
             </head>
             <body>
             <div class="container-fluid">
+            <img src="'. $_SERVER['DOCUMENT_ROOT'] .'/wp-content/plugins/indicacao-bolsista/images/'. $img .'" alt="'. $this->data['tipo'] .'" width="200px">
             <h3>Indicação ' . $this->data['tipo'] . '</h3>
             <table class="table table-bordered table-striped">
                     <tr>
@@ -127,14 +150,7 @@ class Comprovante
                         <td><strong>E-mail do(a) bolsista: </strong></td>
                         <td>' . $this->data['email'] . '</td>
                     </tr>
-                    <tr>
-                        <td><strong>Agência do Banco do Brasil nº: </strong></td>
-                        <td>' . $this->data['agencia'] . '</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Conta corrente nº: </strong></td>
-                        <td>' . $this->data['conta_corrente'] . '</td>
-                    </tr>
+                    '. $agencia .'
                     <tr>
                         <td><strong>Nome do(a) orientador(a):</strong></td>
                         <td>' . $this->data['orientador'] . '</td>
