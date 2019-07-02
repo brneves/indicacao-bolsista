@@ -20,8 +20,8 @@ class Comprovante
 
     public function connect()
     {
-        $this->conn = new PDO("mysql:host=localhost;dbname=ppg", "root", "");
-        //$this->conn = new PDO("mysql:host=localhost;dbname=ppg", "ppg", "ppg.12qwaszx");
+        //$this->conn = new PDO("mysql:host=localhost;dbname=ppg", "root", "");
+        $this->conn = new PDO("mysql:host=localhost;dbname=ppg", "ppg", "ppg.12qwaszx");
     }
 
     public function getData()
@@ -50,6 +50,7 @@ class Comprovante
         if($this->data['tipo'] == "Bolsista PIBIC/UEMA")
             $img = "uema.jpg";
         if($this->data['tipo'] == "Bolsista PIBIC/Ações Afirmativas")
+            $this->data['tipo'] = "Bolsista PIBIC/Acoes Afirmativas";
             $img = "acoes.jpg";
         if($this->data['tipo'] == "Bolsista PIBIC/CPNq")
             $img = "cnpq.jpg";
@@ -77,6 +78,7 @@ class Comprovante
                     table, th, td {
                       border: 1px solid black;
                     }
+                    h3 { margin: 0px !important; }
                     tr:nth-child(even) {background-color: #f2f2f2;}
                 </style>
                 <title>Indicação ' . $this->data['tipo'] . '</title>
@@ -84,7 +86,7 @@ class Comprovante
             <body>
             <div class="container-fluid">
             <img src="'. $_SERVER['DOCUMENT_ROOT'] .'/wp-content/plugins/indicacao-bolsista/images/'. $img .'" alt="'. $this->data['tipo'] .'" width="200px">
-            <h3>Indicação ' . $this->data['tipo'] . '</h3>
+            <h3>Indicação ' . utf8_encode($this->data['tipo']) . '</h3>
             <table class="table table-bordered table-striped">
                     <tr>
                         <td><strong>Nome completo do(a) bolsista:</strong></td>
@@ -208,6 +210,7 @@ class Comprovante
             <p style="text-align: center">________________________________________________ <br>Assinatura do(a) Bolsista</p>
             <p style="text-align: center">________________________________________________ <br>Assinatura do(a) Orientador(a)</p>
             <p style="text-align: center"><strong>CP/PPG/UEMA</strong></p>
+            <p><small>Cidade Universitária Paulo VI, Av. Lourenço Vieira da Silva, nº 1000 - Bairro: Jardim São Cristovão<br>CEP 65055-310 – São Luís/MA. FONE: (98) 2016-8100. </small></p>
             </div>
             </body>
         </html>

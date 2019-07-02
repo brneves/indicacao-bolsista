@@ -33,7 +33,7 @@ class IndicacaoView
                 <br>
                 <?php
                 $data = $this->model->getAll(null, "Bolsista PIBIC/FAPEMA/2019");
-                require_once ("inc/table.php");
+                require ("inc/table.php");
                 ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="uema">
@@ -42,7 +42,7 @@ class IndicacaoView
                 <br>
                 <?php
                 $data = $this->model->getAll(null, "Bolsista PIBIC/UEMA");
-                require_once ("inc/table.php");
+                require ("inc/table.php");
                 ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="acoes">
@@ -50,8 +50,8 @@ class IndicacaoView
                 <a href="<?= plugin_dir_url(__FILE__). 'exportar.php?tipo=Bolsista PIBIC/AÇÕES AFIRMATIVAS' ?>" class="btn btn-primary" target="_blank">Exportar</a>
                 <br>
                 <?php
-                $data = $this->model->getAll(null, "Bolsista PIBIC/AÇÕES AFIRMATIVAS");
-                require_once ("inc/table.php");
+                $data = $this->model->getAll(null, "Bolsista PIBIC/Ações Afirmativas");
+                require ("inc/table.php");
                 ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="cnpq">
@@ -60,7 +60,7 @@ class IndicacaoView
                 <br>
                 <?php
                 $data = $this->model->getAll(null, "Bolsista PIBIC/CNPq");
-                require_once ("inc/table.php");
+                require ("inc/table.php");
                 ?>
             </div>
             <div role="tabpanel" class="tab-pane" id="pivic">
@@ -647,7 +647,7 @@ class IndicacaoView
         ?>
         <form action="" method="post">
             <div class="panel panel-primary">
-                <div class="panel-heading">Indicação de Bolsista PIBIC/CPNq</div>
+                <div class="panel-heading">Indicação de Bolsista PIBIC/CNPq</div>
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="nome">Nome completo do(a) bolsista:</label>
@@ -807,7 +807,7 @@ class IndicacaoView
                         <input type="text" class="form-control" name="palavra_chave" required id="palavra_chave">
                     </div>
 
-                    <input type="hidden" name="tipo" value="Bolsista PIBIC/CPNq">
+                    <input type="hidden" name="tipo" value="Bolsista PIBIC/CNPq">
 
                     <input type="submit" name="enviar" value="Enviar" class="btn btn-primary">
 
