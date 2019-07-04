@@ -20,7 +20,7 @@ class Comprovante
 
     public function connect()
     {
-        //$this->conn = new PDO("mysql:host=localhost;dbname=ppg", "root", "");
+//        $this->conn = new PDO("mysql:host=localhost;dbname=ppg", "root", "");
         $this->conn = new PDO("mysql:host=localhost;dbname=ppg", "ppg", "ppg.12qwaszx");
     }
 

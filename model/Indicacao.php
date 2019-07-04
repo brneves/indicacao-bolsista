@@ -130,5 +130,9 @@ class Indicacao extends ModelWPDB
 
     }
 
+    public function update($id, $data)
+    {
+
+    }
 
 }

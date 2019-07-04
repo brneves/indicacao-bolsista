@@ -9,6 +9,7 @@
         <th>Título do plano</th>
         <th>Palavras-chave</th>
         <th>Data Cadastro</th>
+        <th>Ação</th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +22,8 @@
             <td><?= $indicacao['titulo_projeto']; ?></td>
             <td><?= $indicacao['titulo_plano']; ?></td>
             <td><?= $indicacao['palavra_chave']; ?></td>
-            <td><?= date("d/m/Y H:i", strtotime($indicacao['palavra_chave'])); ?></td>
+            <td><?= date("d/m/Y H:i", strtotime($indicacao['created_at'])); ?></td>
+            <td><a href="<?= plugins_url('/indicacao-bolsista/view/') . 'comprovante.php?id=' . $indicacao['id']; ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

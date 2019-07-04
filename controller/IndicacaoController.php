@@ -32,7 +32,10 @@ class IndicacaoController implements Controller
     {
         switch ($get['page']):
             case 'indicacao':
-                return $this->view->indexView();
+                if ($get['id'])
+                    return $this->view->updateData($this->model->getAll($get['id']));
+                else
+                    return $this->view->indexView();
                 break;
         endswitch;
     }
@@ -53,6 +56,7 @@ class IndicacaoController implements Controller
      */
     public function putRequest(array $put)
     {
+        // TODO: Implement putRequest() method.
     }
 
     /**
@@ -62,6 +66,7 @@ class IndicacaoController implements Controller
      */
     public function deleteRequest(array $delete)
     {
+        // TODO: Implement deleteRequest() method.
     }
 
     public function cnpqShortcode()
@@ -94,5 +99,12 @@ class IndicacaoController implements Controller
         $this->model->create($data);
         return $this->model->getResult();
     }
+
+    public function update($id, $data)
+    {
+        $this->model->update($id, $data);
+        return $this->model->getResult();
+    }
+
 
 }
