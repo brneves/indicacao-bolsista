@@ -45,15 +45,19 @@ class Comprovante
                         <td>' . $this->data['conta_corrente'] . '</td>
                     </tr>';
 
-        if($this->data['tipo'] == "Bolsista PIBIC/FAPEMA/2019")
+        if($this->data['tipo'] == "Bolsista PIBIC/FAPEMA/2019"):
             $img = "fapema.jpg";
-        if($this->data['tipo'] == "Bolsista PIBIC/UEMA")
+        endif;
+        if($this->data['tipo'] == "Bolsista PIBIC/UEMA"):
             $img = "uema.jpg";
-        if($this->data['tipo'] == "Bolsista PIBIC/Ações Afirmativas")
+        endif;
+        if($this->data['tipo'] == "Bolsista PIBIC/Ações Afirmativas"):
             $this->data['tipo'] = "Bolsista PIBIC/Acoes Afirmativas";
             $img = "acoes.jpg";
-        if($this->data['tipo'] == "Bolsista PIBIC/CPNq")
+        endif;
+        if($this->data['tipo'] == "Bolsista PIBIC/CPNq"):
             $img = "cnpq.jpg";
+        endif;
         if($this->data['tipo'] == "Bolsista PIVIC"):
             $img = "pivic.jpg";
             $agencia = null;
@@ -90,23 +94,23 @@ class Comprovante
             <table class="table table-bordered table-striped">
                     <tr>
                         <td><strong>Nome completo do(a) bolsista:</strong></td>
-                        <td>' . $this->data['nome'] . '</td>
+                        <td>' . utf8_encode($this->data['nome']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>CPF: </strong></td>
-                        <td>' . $this->data['cpf'] . '</td>
+                        <td>' . utf8_encode($this->data['cpf']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Curso de Graduação: </strong></td>
-                        <td>' . $this->data['curso'] . '</td>
+                        <td>' . utf8_encode($this->data['curso']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Centro: </strong></td>
-                        <td>' . $this->data['centro'] . '</td>
+                        <td>' . utf8_encode($this->data['centro']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Código do(a) aluno(a): </strong></td>
-                        <td>' . $this->data['codigo'] . '</td>
+                        <td>' . utf8_encode($this->data['codigo']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Data de nascimento: </strong></td>
@@ -114,15 +118,15 @@ class Comprovante
                     </tr>
                     <tr>
                         <td><strong>Sexo: </strong></td>
-                        <td>' . $this->data['sexo'] . '</td>
+                        <td>' . utf8_encode($this->data['sexo']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Endereço: </strong></td>
-                        <td>' . $this->data['endereco'] . '</td>
+                        <td>' . utf8_encode($this->data['endereco']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Bairro: </strong></td>
-                        <td>' . $this->data['bairro'] . '</td>
+                        <td>' . utf8_encode($this->data['bairro']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>CEP: </strong></td>
@@ -134,7 +138,7 @@ class Comprovante
                     </tr>
                     <tr>
                         <td><strong>Órgão Emissor: </strong></td>
-                        <td>' . $this->data['orgao_emissor'] . '</td>
+                        <td>' . utf8_encode($this->data['orgao_emissor']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Data de emissão do RG:</strong></td>
@@ -155,7 +159,7 @@ class Comprovante
                     '. $agencia .'
                     <tr>
                         <td><strong>Nome do(a) orientador(a):</strong></td>
-                        <td>' . $this->data['orientador'] . '</td>
+                        <td>' . utf8_encode($this->data['orientador']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Data de nascimento: </strong></td>
@@ -163,7 +167,7 @@ class Comprovante
                     </tr>
                     <tr>
                         <td><strong>Titulação: </strong></td>
-                        <td>' . $this->data['titulacao'] . '</td>
+                        <td>' . utf8_encode($this->data['titulacao']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Matrícula: </strong></td>
@@ -175,11 +179,11 @@ class Comprovante
                     </tr>
                     <tr>
                         <td><strong>Centro: </strong></td>
-                        <td>' . $this->data['centro_orientador'] . '</td>
+                        <td>' . utf8_encode($this->data['centro_orientador']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Departamento: </strong></td>
-                        <td>' . $this->data['departamento_orientador'] . '</td>
+                        <td>' . utf8_encode($this->data['departamento_orientador']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Número de telefone celular: </strong></td>
@@ -195,15 +199,15 @@ class Comprovante
                     </tr>
                     <tr>
                         <td><strong>Título do projeto do(a) orientador(a): </strong></td>
-                        <td>' . $this->data['titulo_projeto'] . '</td>
+                        <td>' . utf8_encode($this->data['titulo_projeto']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Título do plano de trabalho do(a) bolsista: </strong></td>
-                        <td>' . $this->data['titulo_plano'] . '</td>
+                        <td>' . utf8_encode($this->data['titulo_plano']) . '</td>
                     </tr>
                     <tr>
                         <td><strong>Palavras-chave (no máximo três): </strong></td>
-                        <td>' . $this->data['palavra_chave'] . '</td>
+                        <td>' . utf8_encode($this->data['palavra_chave']) . '</td>
                     </tr>
             </table>
             <br>
