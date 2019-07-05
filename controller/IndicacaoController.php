@@ -32,10 +32,14 @@ class IndicacaoController implements Controller
     {
         switch ($get['page']):
             case 'indicacao':
-                if ($get['id'])
+                if ($get['id']) :
                     return $this->view->updateData($this->model->getAll($get['id']));
-                else
+                elseif($get['del']):
+                    $this->model->delete($get['del']);
                     return $this->view->indexView();
+                else:
+                    return $this->view->indexView();
+                endif;
                 break;
         endswitch;
     }
@@ -47,6 +51,12 @@ class IndicacaoController implements Controller
      */
     public function postRequest(array $post)
     {
+        switch ($post['action']):
+            case 'update':
+                $this->altera($post);
+                return $this->view->indexView();
+                break;
+        endswitch;
     }
 
     /**
@@ -100,9 +110,9 @@ class IndicacaoController implements Controller
         return $this->model->getResult();
     }
 
-    public function update($id, $data)
+    public function altera($data)
     {
-        $this->model->update($id, $data);
+        $this->model->altera($data);
         return $this->model->getResult();
     }
 

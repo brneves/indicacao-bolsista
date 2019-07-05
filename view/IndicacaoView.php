@@ -80,21 +80,15 @@ class IndicacaoView
     public function updateData($dados)
     {
         $dados = $dados[0];
-        var_dump($dados);
-
-        $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        if (isset($post)):
-            $inscricao = new IndicacaoController();
-            $result = $inscricao->update($post);
-
-            echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
-
-        endif;
+//        var_dump($dados);
 
         ?>
         <form action="" method="post">
             <div class="panel panel-primary">
                 <div class="panel-body">
+
+                    <input type="hidden" name="id" value="<?= $dados['id']; ?>">
+
                     <div class="form-group">
                         <label for="nome">Nome completo do(a) bolsista:</label>
                         <input type="text" class="form-control" name="nome" required id="nome" value="<?= $dados['nome']; ?>">
@@ -180,12 +174,12 @@ class IndicacaoView
 
                     <div class="form-group">
                         <label for="agencia">Agência do Banco do Brasil nº:</label>
-                        <input type="text" class="form-control" name="agencia" required id="agencia" value="<?= $dados['agencia']; ?>">
+                        <input type="text" class="form-control" name="agencia" id="agencia" value="<?= $dados['agencia']; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="conta_corrente">Conta corrente nº:</label>
-                        <input type="text" class="form-control" name="conta_corrente" required id="conta_corrente" value="<?= $dados['conta_corrente']; ?>">
+                        <input type="text" class="form-control" name="conta_corrente" id="conta_corrente" value="<?= $dados['conta_corrente']; ?>">
                     </div>
 
                     <div class="form-group">
@@ -253,6 +247,8 @@ class IndicacaoView
                         <input type="text" class="form-control" name="palavra_chave" required id="palavra_chave" value="<?= $dados['palavra_chave']; ?>">
                     </div>
 
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="todo" value="indicacao">
                     <input type="submit" name="enviar" value="Alterar" class="btn btn-primary">
 
                 </div>

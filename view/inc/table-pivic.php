@@ -9,7 +9,7 @@
         <th>Título do plano</th>
         <th>Palavras-chave</th>
         <th>Data Cadastro</th>
-        <th>Ação</th>
+        <th width="150px">Ação</th>
     </tr>
     </thead>
     <tbody>
@@ -23,7 +23,11 @@
             <td><?= $indicacao['titulo_plano']; ?></td>
             <td><?= $indicacao['palavra_chave']; ?></td>
             <td><?= date("d/m/Y H:i", strtotime($indicacao['created_at'])); ?></td>
-            <td><a href="<?= plugins_url('/indicacao-bolsista/view/') . 'comprovante.php?id=' . $indicacao['id']; ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a></td>
+            <td>
+                <a href="<?= plugins_url('/indicacao-bolsista/view/') . 'comprovante.php?id=' . $indicacao['id']; ?>" target="_blank" class="btn btn-success"><span class="glyphicon glyphicon-file"></span></a>
+                <a href="<?= admin_url('admin.php?page=indicacao&id=') . $indicacao['id']; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="<?= admin_url('admin.php?page=indicacao&del=') . $indicacao['id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>

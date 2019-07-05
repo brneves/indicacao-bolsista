@@ -130,9 +130,100 @@ class Indicacao extends ModelWPDB
 
     }
 
-    public function update($id, $data)
+    public function altera($data)
     {
+        $this->data = $data;
 
+        $this->data = array_map('strip_tags', $this->data);
+        $this->data = array_map('trim', $this->data);
+
+        try {
+            $this->replace($this->table, [
+                'nome'                       => $this->data['nome'],
+                'cpf'                        => $this->data['cpf'],
+                'curso'                      => $this->data['curso'],
+                'centro'                     => $this->data['centro'],
+                'codigo'                     => $this->data['codigo'],
+                'data_nascimento'            => $this->data['data_nascimento'],
+                'sexo'                       => $this->data['sexo'],
+                'endereco'                   => $this->data['endereco'],
+                'bairro'                     => $this->data['bairro'],
+                'cep'                        => $this->data['cep'],
+                'identidade'                 => $this->data['identidade'],
+                'orgao_emissor'              => $this->data['orgao_emissor'],
+                'data_emissao'               => $this->data['data_emissao'],
+                'fone_residencial'           => $this->data['fone_residencial'],
+                'fone_celular'               => $this->data['fone_celular'],
+                'email'                      => $this->data['email'],
+                'agencia'                    => isset($this->data['agencia']) ? $this->data['agencia'] : '',
+                'conta_corrente'             => isset($this->data['conta_corrente']) ? $this->data['conta_corrente'] : '',
+                'orientador'                 => $this->data['orientador'],
+                'data_nascimento_orientador' => $this->data['data_nascimento_orientador'],
+                'titulacao'                  => $this->data['titulacao'],
+                'matricula'                  => $this->data['matricula'],
+                'cpf_orientador'             => $this->data['cpf_orientador'],
+                'centro_orientador'          => $this->data['centro_orientador'],
+                'departamento_orientador'    => $this->data['departamento_orientador'],
+                'celular_orientador'         => $this->data['celular_orientador'],
+                'email_orientador'           => $this->data['email_orientador'],
+                'telefone_orientador'        => $this->data['telefone_orientador'],
+                'titulo_projeto'             => $this->data['titulo_projeto'],
+                'titulo_plano'               => $this->data['titulo_plano'],
+                'palavra_chave'              => $this->data['palavra_chave'],
+                'updated_at'                 => date("Y-m-d H:i:s"),
+            ],
+                [
+                    'id' => $this->data['id'],
+                ],
+                [
+                    '%s', //nome
+                    '%s', //cpf
+                    '%s', //curso
+                    '%s', //centro
+                    '%s', //codigo
+                    '%s', //nasc
+                    '%s', //sexo
+                    '%s', //endereco
+                    '%s', //bairro
+                    '%s', //cep
+                    '%s', //id
+                    '%s', //orgao
+                    '%s', //emissao
+                    '%s', //dataEm
+                    '%s', //foneRes
+                    '%s', //FoneCel
+                    '%s', //email
+                    '%s', //agencia
+                    '%s', //cc
+                    '%s', //orientador
+                    '%s', //dataNasc
+                    '%s', //titulacao
+                    '%s', //matricula
+                    '%s', //cpf
+                    '%s', //centro
+                    '%s', //departamento
+                    '%s', //celular
+                    '%s', //email
+                    '%s', //telefone
+                    '%s', //titulo
+                    '%s', //plano
+                    '%s', //palavrachave
+                    '%s', //created
+                ],
+                ['%d']
+            );
+        } catch (\Exception $e) {
+            return HTTPMethod::getError($e->getCode(), $e->getMessage());
+        }
+    }
+
+    public function delete($id)
+    {
+        try{
+            $this->remove($this->table, ['id' => $id], ['%d']);
+        }catch (\Exception $e){
+            return HTTPMethod::getError($e->getCode(), $e->getMessage());
+        }
     }
 
 }
