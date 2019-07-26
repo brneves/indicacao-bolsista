@@ -1,7 +1,7 @@
 <?php
 /*
-  Plugin Name: Indicação de Bolsistas 2019
-  Description: Plugin para gerenciamento da Indicação de Bolsistas 2019
+  Plugin Name: Bolsista de Bolsistas 2019/PROEXAE
+  Description: Plugin para gerenciamento da Bolsista de Bolsistas 2019/PROEXAE
   Version: 1.1.0
   Author: DPD-NTI
  */
@@ -13,7 +13,7 @@ use MocaBonita\includes\wp\WPShortcode;
 
 require_once (plugin_dir_path(__FILE__). 'vendor/autoload.php');
 
-class Indicacao extends MocaBonita\MocaBonita
+class Bolsista extends MocaBonita\MocaBonita
 {
 
     public function __construct()
@@ -33,8 +33,8 @@ class Indicacao extends MocaBonita\MocaBonita
     {
         $wpMenu = [
             [
-                'Indicação',
-                'Indicação',
+                'Bolsista',
+                'Bolsista',
                 'edit_pages',
                 'indicacao',
                 $this,
@@ -52,7 +52,7 @@ class Indicacao extends MocaBonita\MocaBonita
      */
     public function addLinks()
     {
-        if (isset($_GET['page']) == 'indicacao'):
+        if (isset($_GET['page']) == 'bolsista'):
             $css = [
                 plugins_url(Path::PLGCSS . 'bootstrap.min.css'),
                 plugins_url(Path::PLGCSS . 'custom.css'),
@@ -96,7 +96,7 @@ class Indicacao extends MocaBonita\MocaBonita
      */
     public function addTODO()
     {
-        $this->insertTODO('\Indicacao\controller\IndicacaoController', 'indicacao');
+        $this->insertTODO('\Bolsista\controller\BolsistaController', 'bolsista');
     }
 
     /**
@@ -106,5 +106,5 @@ class Indicacao extends MocaBonita\MocaBonita
 }
 
 add_action('plugins_loaded', function (){
-    new Indicacao();
+    new Bolsista();
 });

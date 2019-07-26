@@ -13,7 +13,7 @@ class ComposerStaticInit3f68812adad4170ff1e2dac51b721d0e
         ),
         'I' => 
         array (
-            'Indicacao\\' => 10,
+            'Bolsista\\' => 10,
         ),
     );
 
@@ -22,7 +22,7 @@ class ComposerStaticInit3f68812adad4170ff1e2dac51b721d0e
         array (
             0 => __DIR__ . '/../..' . '/moca_bonita',
         ),
-        'Indicacao\\' => 
+        'Bolsista\\' =>
         array (
             0 => __DIR__ . '/../..' . '/',
         ),

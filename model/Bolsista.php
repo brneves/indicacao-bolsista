@@ -1,16 +1,16 @@
 <?php
 
-namespace Indicacao\model;
+namespace Bolsista\model;
 
 use MocaBonita\model\ModelWPDB;
 use MocaBonita\includes\HTTPMethod;
 
-class Indicacao extends ModelWPDB
+class Bolsista extends ModelWPDB
 {
 
     public $data;
     public $result;
-    protected $table = 'indicacao_bolsista';
+    protected $table = 'bolsista';
 
     public function getResult()
     {

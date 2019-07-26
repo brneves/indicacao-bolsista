@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'MocaBonita\\' => array($baseDir . '/moca_bonita'),
-    'Indicacao\\' => array($baseDir . '/'),
+    'Bolsista\\' => array($baseDir . '/'),
 );

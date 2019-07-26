@@ -1,18 +1,18 @@
 <?php
 
-namespace Indicacao\view;
+namespace Bolsista\view;
 
-use Indicacao\controller\IndicacaoController;
-use Indicacao\model\Indicacao;
+use Bolsista\controller\BolsistaController;
+use Bolsista\model\Bolsista;
 
-class IndicacaoView
+class BolsistaView
 {
 
     private $model;
 
     public function indexView()
     {
-        $this->model = new Indicacao();
+        $this->model = new Bolsista();
         ?>
         <h2>Indicações</h2>
 
@@ -47,7 +47,7 @@ class IndicacaoView
             </div>
             <div role="tabpanel" class="tab-pane" id="acoes">
                 <br>
-                <a href="<?= plugin_dir_url(__FILE__) . 'exportar.php?tipo=Bolsista PIBIC/AÇÕES AFIRMATIVAS' ?>" class="btn btn-primary" target="_blank">Exportar</a>
+                <a href="<?= plugin_dir_url(__FILE__) . 'exportar.php?tipo=Bolsista PIBIC/Ações Afirmativas' ?>" class="btn btn-primary" target="_blank">Exportar</a>
                 <br>
                 <?php
                 $data = $this->model->getAll(null, "Bolsista PIBIC/Ações Afirmativas");
@@ -261,7 +261,7 @@ class IndicacaoView
     {
         $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (isset($post)):
-            $inscricao = new IndicacaoController();
+            $inscricao = new BolsistaController();
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
@@ -446,7 +446,7 @@ class IndicacaoView
     {
         $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (isset($post)):
-            $inscricao = new IndicacaoController();
+            $inscricao = new BolsistaController();
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
@@ -631,7 +631,7 @@ class IndicacaoView
     {
         $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (isset($post)):
-            $inscricao = new IndicacaoController();
+            $inscricao = new BolsistaController();
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
@@ -816,7 +816,7 @@ class IndicacaoView
     {
         $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (isset($post)):
-            $inscricao = new IndicacaoController();
+            $inscricao = new BolsistaController();
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";
@@ -1001,7 +1001,7 @@ class IndicacaoView
     {
         $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (isset($post)):
-            $inscricao = new IndicacaoController();
+            $inscricao = new BolsistaController();
             $result = $inscricao->create($post);
 
             echo "<div class='alert {$result[1]}'>{$result[0]}</div>";

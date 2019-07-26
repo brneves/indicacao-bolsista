@@ -11,7 +11,7 @@
   "autoload": {
     "psr-4": {
       "MocaBonita\\" : "moca_bonita",
-      "Indicacao\\" : "./"
+      "Bolsista\\" : "./"
     }
   }
 }

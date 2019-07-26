@@ -1,25 +1,25 @@
 <?php
 
-namespace Indicacao\controller;
+namespace Bolsista\controller;
 
-use Indicacao\model\Indicacao;
-use Indicacao\view\IndicacaoView;
+use Bolsista\model\Bolsista;
+use Bolsista\view\BolsistaView;
 use MocaBonita\controller\Controller;
 
-class IndicacaoController implements Controller
+class BolsistaController implements Controller
 {
 
     private $view;
     private $model;
 
     /**
-     * IndicacaoController constructor.
+     * BolsistaController constructor.
      * @param $view
      */
     public function __construct()
     {
-        $this->view = new IndicacaoView();
-        $this->model = new Indicacao();
+        $this->view = new BolsistaView();
+        $this->model = new Bolsista();
     }
 
 
