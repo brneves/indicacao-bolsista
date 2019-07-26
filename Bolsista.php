@@ -36,7 +36,7 @@ class Bolsista extends MocaBonita\MocaBonita
                 'Bolsista',
                 'Bolsista',
                 'edit_pages',
-                'indicacao',
+                'bolsista',
                 $this,
                 'doAction',
                 'dashicons-format-aside',
@@ -84,11 +84,12 @@ class Bolsista extends MocaBonita\MocaBonita
      */
     public function addShortcode()
     {
-        WPShortcode::addShortCode('insc-cnpq', $this->todo->getController('indicacao'), 'cnpqShortcode');
-        WPShortcode::addShortCode('insc-fapema', $this->todo->getController('indicacao'), 'fapemaShortcode');
-        WPShortcode::addShortCode('insc-uema', $this->todo->getController('indicacao'), 'uemaShortcode');
-        WPShortcode::addShortCode('insc-pivic', $this->todo->getController('indicacao'), 'pivicShortcode');
-        WPShortcode::addShortCode('insc-acoes', $this->todo->getController('indicacao'), 'acoesShortcode');
+        WPShortcode::addShortCode('acoBolsista', $this->todo->getController('indicacao'), 'acoBolsistaShortcode');
+        WPShortcode::addShortCode('acoVoluntario', $this->todo->getController('indicacao'), 'acoVoluntarioShortcode');
+        WPShortcode::addShortCode('acoColaborador', $this->todo->getController('indicacao'), 'acoColaboradorShortcode');
+        WPShortcode::addShortCode('pibexBolsista', $this->todo->getController('indicacao'), 'pibexBolsistaShortcode');
+        WPShortcode::addShortCode('pibexVoluntario', $this->todo->getController('indicacao'), 'pibexVoluntarioShortcode');
+        WPShortcode::addShortCode('pibexColaborador', $this->todo->getController('indicacao'), 'pibexColaboradorShortcode');
     }
 
     /**

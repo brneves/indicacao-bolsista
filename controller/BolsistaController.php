@@ -31,7 +31,7 @@ class BolsistaController implements Controller
     public function getRequest(array $get)
     {
         switch ($get['page']):
-            case 'indicacao':
+            case 'bolsista':
                 if ($get['id']) :
                     return $this->view->updateData($this->model->getAll($get['id']));
                 elseif($get['del']):
